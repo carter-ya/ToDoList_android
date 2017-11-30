@@ -26,6 +26,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ProjectActivity extends AppCompatActivity {
+
   private static final String TAG = "ProjectActivity";
 
   @Override
@@ -65,7 +66,8 @@ public class ProjectActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
           @Override
           public void run() {
-            ArrayAdapter<ProjectResponse> arrayAdapter = new ArrayAdapter<>(ProjectActivity.this, android.R.layout.simple_list_item_1, projects);
+            ArrayAdapter<ProjectResponse> arrayAdapter = new ArrayAdapter<>(ProjectActivity.this,
+                android.R.layout.simple_list_item_1, projects);
             projectView.setAdapter(arrayAdapter);
             progressDialog.dismiss();
           }

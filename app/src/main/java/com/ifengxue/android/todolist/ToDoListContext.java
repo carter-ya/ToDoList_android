@@ -17,6 +17,7 @@ import okhttp3.ResponseBody;
  * Created by 刘克峰 on 2017-11-26.
  */
 public final class ToDoListContext {
+
   public static String token;
   public static UserResponse user;
   public static MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf8");
@@ -34,7 +35,8 @@ public final class ToDoListContext {
     public Response intercept(Chain chain) throws IOException {
       Response response = chain.proceed(chain.request());
       if (response.code() != 200) {
-        throw new IOException("invalid response code:" + response.code() + ", response body:" + response.body().string());
+        throw new IOException(
+            "invalid response code:" + response.code() + ", response body:" + response.body().string());
       }
       String responseString = response.body().string();
       JSONObject jsonObject = JSON.parseObject(responseString);
@@ -47,6 +49,7 @@ public final class ToDoListContext {
   }).build();
 
   public static class UrlContext {
+
     public static String baseUrl = "http://192.168.10.57:8080";
 
     public static String getLoginUrl() {

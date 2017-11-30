@@ -35,6 +35,7 @@ import static com.ifengxue.android.todolist.ToDoListContext.MEDIA_TYPE_JSON;
  * 登陆活动
  */
 public class LoginActivity extends AppCompatActivity {
+
   private static final String TAG = "LoginActivity";
 
   @Override
@@ -56,7 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         Map<String, String> map = new HashMap<>();
         map.put("account", account);
         map.put("password", password);
-        Request request = new Request.Builder().url(UrlContext.getLoginUrl()).post(RequestBody.create(MEDIA_TYPE_JSON, JSON.toJSONString(map))).build();
+        Request request = new Request.Builder().url(UrlContext.getLoginUrl())
+            .post(RequestBody.create(MEDIA_TYPE_JSON, JSON.toJSONString(map))).build();
         Call call = HTTP_CLIENT.newCall(request);
         call.enqueue(new Callback() {
           @Override
@@ -78,9 +80,9 @@ public class LoginActivity extends AppCompatActivity {
             ToDoListContext.token = token;
             Log.i(TAG, "用户 " + account + " 登陆成功, token:" + token);
             Request userInfoRequest = new Request.Builder()
-                    .url(UrlContext.getUserInfoUrl())
-                    .header("Accept", MEDIA_TYPE_JSON.toString())
-                    .build();
+                .url(UrlContext.getUserInfoUrl())
+                .header("Accept", MEDIA_TYPE_JSON.toString())
+                .build();
             Call userInfoCall = HTTP_CLIENT.newCall(userInfoRequest);
             userInfoCall.enqueue(new Callback() {
               @Override
@@ -94,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                   }
                 });
               }
+
               @Override
               public void onResponse(Call call, Response response) throws IOException {
                 JSONObject userInfoJSON = JSON.parseObject(response.body().string());
