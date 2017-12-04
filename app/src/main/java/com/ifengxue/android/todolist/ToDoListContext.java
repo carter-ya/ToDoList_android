@@ -3,9 +3,7 @@ package com.ifengxue.android.todolist;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ifengxue.android.todolist.response.UserResponse;
-
 import java.io.IOException;
-
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -50,7 +48,7 @@ public final class ToDoListContext {
 
   public static class UrlContext {
 
-    public static String baseUrl = "http://192.168.10.57:8080";
+    public static String baseUrl = "http://192.168.10.65:8080";
 
     public static String getLoginUrl() {
       return baseUrl + "/v1/users/login";
@@ -62,6 +60,22 @@ public final class ToDoListContext {
 
     public static String getProjectsUrl() {
       return baseUrl + "/v1/projects/";
+    }
+
+    public static String getProjectDeleteUrl(long projectId) {
+      return baseUrl + "/v1/projects/" + projectId + "/delete";
+    }
+
+    public static String getProjectAddUrl() {
+      return baseUrl + "/v1/projects/";
+    }
+
+    public static String getProjectInfoUrl(long projectId) {
+      return baseUrl + "/v1/projects/" + projectId;
+    }
+
+    public static String getProjectRenameUrl(long projectId) {
+      return baseUrl + "/v1/projects/" + projectId + "/rename";
     }
   }
 }
