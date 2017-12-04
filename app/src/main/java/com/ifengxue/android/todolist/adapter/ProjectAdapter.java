@@ -2,7 +2,6 @@ package com.ifengxue.android.todolist.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -88,10 +87,14 @@ public class ProjectAdapter extends ArrayAdapter<ProjectResponse> {
 
           @Override
           public void onResponse(Call call, Response response) throws IOException {
-            //TODO 移除已被删除元素
-            Looper.prepare();
-            Toast.makeText(getContext(), "删除项目 " + project.getName() + " 成功", Toast.LENGTH_SHORT).show();
-            Looper.loop();
+            final ProjectActivity projectActivity = ((ProjectActivity) getContext());
+            projectActivity.runOnUiThread(new Runnable() {
+              @Override
+              public void run() {
+                projectActivity.refreshProject();
+                Toast.makeText(getContext(), "删除项目 " + project.getName() + " 成功", Toast.LENGTH_SHORT).show();
+              }
+            });
           }
         });
       }

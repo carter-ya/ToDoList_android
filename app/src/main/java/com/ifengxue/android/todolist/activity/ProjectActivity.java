@@ -75,7 +75,7 @@ public class ProjectActivity extends AppCompatActivity {
     }
   }
 
-  private void refreshProject() {
+  public void refreshProject() {
     final ListView projectView = (ListView) findViewById(R.id.list_project);
     final ProgressDialog progressDialog = new ProgressDialog(ProjectActivity.this);
     progressDialog.setTitle("提示");
