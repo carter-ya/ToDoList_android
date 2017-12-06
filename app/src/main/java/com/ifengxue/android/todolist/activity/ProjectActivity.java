@@ -30,6 +30,7 @@ public class ProjectActivity extends AppCompatActivity {
   private static final String TAG = "ProjectActivity";
   public static final int ADD_PROJECT_REQUEST_CODE = 1;
   public static final int RENAME_PROJECT_REQUEST_CODE = 2;
+  public static final int TASK_VIEW_REQUEST_CODE = 3;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,9 @@ public class ProjectActivity extends AppCompatActivity {
         refreshProject();
         break;
       case RENAME_PROJECT_REQUEST_CODE:
+        refreshProject();
+        break;
+      case TASK_VIEW_REQUEST_CODE:
         refreshProject();
         break;
     }

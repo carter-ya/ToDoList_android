@@ -24,6 +24,12 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"/>
   <Button
+    android:id="@+id/button_task_view"
+    android:layout_weight="2"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/button_task_view"/>
+  <Button
     android:id="@+id/button_delete_project"
     android:layout_weight="2"
     android:layout_width="0dp"

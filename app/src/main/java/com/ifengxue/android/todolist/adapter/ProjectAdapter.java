@@ -18,6 +18,7 @@ import com.ifengxue.android.todolist.ToDoListContext.UrlContext;
 import com.ifengxue.android.todolist.activity.ProjectActivity;
 import com.ifengxue.android.todolist.activity.ProjectInfoActivity;
 import com.ifengxue.android.todolist.activity.RenameProjectActivity;
+import com.ifengxue.android.todolist.activity.TaskActivity;
 import com.ifengxue.android.todolist.response.ProjectResponse;
 import java.io.IOException;
 import java.util.List;
@@ -72,6 +73,15 @@ public class ProjectAdapter extends ArrayAdapter<ProjectResponse> {
 
     ((TextView) view.findViewById(R.id.project_total_task)).setText(project.getTotalTask().toString());
     ((TextView) view.findViewById(R.id.project_total_finish_task)).setText(project.getTotalFinishedTask().toString());
+    view.findViewById(R.id.button_task_view).setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        final ProjectActivity projectActivity = ((ProjectActivity) getContext());
+        Intent intent = new Intent(projectActivity, TaskActivity.class);
+        intent.putExtra("projectId", project.getId());
+        projectActivity.startActivityForResult(intent, ProjectActivity.TASK_VIEW_REQUEST_CODE);
+      }
+    });
     view.findViewById(R.id.button_delete_project).setOnClickListener(new View.OnClickListener() {
 
       @Override

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <ImageView
+    android:id="@+id/img_task_state"
+    android:layout_width="32dp"
+    android:layout_height="64dp"
+    android:src="@drawable/finish"/>
+  <TextView
+    android:id="@+id/text_task_name"
+    android:layout_weight="3"
+    android:layout_width="0dp"
+    android:layout_height="64dp"
+    android:gravity="center"
+    android:textColor="#ffffff"
+    android:textSize="24sp"
+    android:layout_margin="5sp"
+    android:text="测试文本"/>
+  <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="128dp"
+    android:layout_height="wrap_content">
+    <ImageButton
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:src="@drawable/done"/>
+    <ImageButton
+      android:layout_width="64dp"
+      android:layout_height="64dp"
+      android:src="@drawable/delete"/>
+  </LinearLayout>
+</LinearLayout>

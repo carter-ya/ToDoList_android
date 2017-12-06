@@ -77,5 +77,9 @@ public final class ToDoListContext {
     public static String getProjectRenameUrl(long projectId) {
       return baseUrl + "/v1/projects/" + projectId + "/rename";
     }
+
+    public static String getTasksUrl(long projectId, long parentId) {
+      return baseUrl + "/v1/projects/" + projectId + "/tasks/" + parentId + "/";
+    }
   }
 }
